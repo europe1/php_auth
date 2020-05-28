@@ -1,0 +1,46 @@
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  margin: 20px;
+  font-size: 16px;
+  background-color: #F0EFF4;
+  color: #04080F;
+}
+
+input {
+  font-family: inherit;
+  padding: 3px 5px;
+  border: none;
+  border-bottom: 2px solid #04080F;
+  font-weight: inherit;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btnStyle {
+  color: #2292A4;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: inherit;
+  padding: 0;
+  font-weight: inherit;
+}
+
+.btnStyle:hover {
+  background-color: #2292A4;
+  color: #F0EFF4;
+}
+
+#errorText {
+  padding: 15px;
+  padding-bottom: 0;
+  color: #FF3366;
+}
+
+#actionBlock {
+  display: none;
+}
