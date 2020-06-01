@@ -20,6 +20,8 @@ switch ($_POST['action']) {
       error_response(400, 'All fields must be filled.');
     } else if ($_POST['password'] !== $_POST['confirm_password']) {
       error_response(400, 'Password must be identical.');
+    } else if (!validate_email($_POST['email'])) {
+      error_response(400, 'Please enter a valid email.');
     } else {
       $login = addslashes($_POST['login']);
       $email = addslashes($_POST['email']);
@@ -108,5 +110,19 @@ function ok_response() {
     $response->userName = $_SESSION['name'];
   }
   json_response($response);
+}
+
+function validate_email($email) {
+  if (strpos($email, '@') === FALSE) {
+    return False;
+  } else {
+    $email_parts = explode('@', $email);
+    # Assume the first part is always valid
+    # Check only the presence of the dot in the second part
+    if (strpos($email_parts[1], '.') === FALSE) {
+      return False;
+    }
+    return True;
+  }
 }
 ?>
