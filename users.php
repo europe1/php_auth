@@ -104,7 +104,9 @@ function ok_response() {
   $response = new stdClass();
   $response->code = 200;
   $response->text = 'OK.';
-  $response->userName = $_SESSION['name'];
+  if (isset($_SESSION['name'])) {
+    $response->userName = $_SESSION['name'];
+  }
   json_response($response);
 }
 ?>

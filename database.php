@@ -93,7 +93,7 @@ class Database {
   function is_unique($field_name, $value) {
     $rows = $this->db->users->row;
     foreach ($rows as $row) {
-      if ($row == $value) return False;
+      if ($row->$field_name == $value) return False;
     }
     return True;
   }
