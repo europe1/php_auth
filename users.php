@@ -117,9 +117,18 @@ function validate_email($email) {
     return False;
   } else {
     $email_parts = explode('@', $email);
-    # Assume the first part is always valid
-    # Check only the presence of the dot in the second part
+    # Assume the first part should consist at least 1 symbol
+    if (strlen($email_parts[0]) < 1) {
+      return False;
+    }
+
     if (strpos($email_parts[1], '.') === FALSE) {
+      return False;
+    }
+
+    $domain_parts = explode('.', $email_parts[1]);
+    # The domain must contain at least 1 symbol before dot and 2 symbols after
+    if (strlen($domain_parts[0]) < 1 || strlen($domain_parts[1]) < 2) {
       return False;
     }
     return True;
